@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1036814981881",
+    "project_id": "fmpc-tracker",
+    "storage_bucket": "fmpc-tracker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036814981881:android:e3a242c16f2ca1fb9c9ff4",
+        "android_client_info": {
+          "package_name": "com.example.fmpc_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_placeholder_key_here"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
