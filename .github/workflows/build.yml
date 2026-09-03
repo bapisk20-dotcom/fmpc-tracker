@@ -15,8 +15,9 @@ jobs:
           flutter-version: '3.22.x'
           cache: true
 
-      - name: Build Clean APK
+      - name: Rebuild Android Config & Build APK
         run: |
+          flutter create . --platforms=android
           flutter clean
           flutter pub get
           flutter build apk --release --no-tree-shake-icons
