@@ -9,13 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
-      - run: flutter create . --platforms=android --org com.example --project-name fmpc_tracker
-      - run: sed -i 's/minSdkVersion.*/minSdkVersion 21/' android/app/build.gradle
-      - run: flutter pub get
-      - run: flutter build apk --release
+          flutter-version: '3.22.x'
+          cache: true
+
+      - name: Optimize for Modern Android
+        run: |
+          sed -i 's/minSdkVersion.*/minSdkVersion 21/' android/app/build.gradle
+          sed -i 's/targetSdkVersion.*/targetSdkVersion 34/' android/app/build.gradle
+          sed -i 's/compileSdkVersion.*/compileSdkVersion 34/' android/app/build.gradle
+          flutter clean
+          flutter pub get
+          flutter build apk --release --no-tree-shake-icons
+
       - uses: actions/upload-artifact@v4
         with:
           name: app-release
